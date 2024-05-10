@@ -31,11 +31,15 @@ public class PlayerController : MonoBehaviour
         // Godot Tip : In Godot the equilviant is Input.IsActionJustPressed
         if(Input.GetButtonDown("Jump")) {
             Debug.Log("Is Jumping");
+            Flap();
+        }
+
+    } // End of Update
+
+    public void Flap() {
             // Add force applie force in a particular direction
             // SECOND ARGUMENT
             // How to distribute that force
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-        }
-
     }
 }

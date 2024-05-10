@@ -11,10 +11,15 @@ public class PipeGenerator : MonoBehaviour
 
     // Object to generate ( Pipe )
     public GameObject pipe;
+    // public GameObject pipContainer;
 
     // Time
     public float spawnTime;
     float countdown;
+
+    // Min and Max Height
+    public float minGapHight;
+    public float maxGapHight;
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +48,13 @@ public class PipeGenerator : MonoBehaviour
 
     void GeneratePipe() {
         GameObject newPipe = Instantiate(pipe);
+        // pipContainer.transform.SetParent(newPipe.transform);
         newPipe.transform.position = startingLocation.position;
+
+        float randomHeight = Random.Range(minGapHight, maxGapHight);
+        Vector3 newHeight = new Vector3(0, randomHeight, 0);
+        newPipe.transform.position += newHeight;
+
     }
 
 }
